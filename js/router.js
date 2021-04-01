@@ -371,8 +371,12 @@ define(["jquery", "underscore", "backbone", "collections/Shapes", "collections/C
 		},
 
 		import: function(){
+			while(Jel.canvasShapes.length > 0) {
+				Jel.canvasShapes.forEach(obj => {console.log(obj.id, "to be deleted"); Jel.Router.deleteConnections(obj.id); Jel.Router.deleteShape(obj.id);});
+			}
 			if(Jel.importValue){
 				var input = Jel.xmlImport(Jel.getXMLWrapper(), Jel.getBaseElement());
+				console.info('loaded XML', input);
 				//Jel.input = input;
 				this.index();
 			}

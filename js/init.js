@@ -56,6 +56,12 @@ function init() {
       shape5.setMetaelement('process');
       Jel.paletteShapes.addShape(shape5);
 
+      // var shape5_1 = new Jel.Shape();
+      // shape5.setImage("img/mt.gif");
+      // shape5.setName("Processor");
+      // shape5.setMetaelement('process');
+      // Jel.paletteShapes.addShape(shape5_1);
+
       var shape6 = new Jel.Shape();
       shape6.setImage("img/mt.gif");
       shape6.setName("Method");
