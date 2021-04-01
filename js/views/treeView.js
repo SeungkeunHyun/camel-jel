@@ -45,11 +45,13 @@ define(["jquery", "underscore", "backbone", "ractive", "jstree", "text!templates
 
 		    this.template = new Ractive({el : $(this.el), template: template});
             $(this.el).empty();
-            if(this.treeContent) this.tree = $(this.el).jstree({ core : {data : $.parseJSON(this.treeContent)}}
-                             );
+
+            if(this.treeContent) this.tree = $(this.el).jstree({ core : {data : $.parseJSON(this.treeContent)}});
+            
             $(this.tree).on('select_node.jstree', function (e, data) {
                                   if(data.node.original.canvas) Backbone.history.navigate("canvas/"+data.node.original.canvas, {trigger:true});
                               });
+            $('#tree').perfectScrollbar('update');
             $(this.tree).bind("loaded.jstree", function (event, data) {
                 // you get two params - event & data - check the core docs for a detailed description
                  data.instance.open_all();
