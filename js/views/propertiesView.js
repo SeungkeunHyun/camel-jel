@@ -86,7 +86,7 @@ define(["jquery", "underscore", "backbone", "ractive", "xsdAttr", "jel", "text!t
             $(this.el).empty();
 
             this.number = new Object();
-            this.model.el.removeElements();            
+            //this.model.el.removeElements();            
 
             for(var propName in this.model.props){
                 if(this.model.props.hasOwnProperty(propName)){

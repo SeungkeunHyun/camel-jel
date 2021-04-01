@@ -1,5 +1,6 @@
 
 function init() {
+  document.location.hash = '';
   Jel.fn.init = function(){
 
       //Setting the xsd file in order to do validation
