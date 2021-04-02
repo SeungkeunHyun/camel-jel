@@ -23,6 +23,7 @@ define(["jquery", "underscore", "backbone", "ractive", "jstree", "text!templates
             if(shapes){
                 var i, result = "[";
                 for(i=0; i<shapes.length; i++){
+                    console.log('shape', shapes.at(i));
                     //result+="{ \"id\" : \""+shapes.at(i).id+"\"";
                     result+="{ \"text\" : \""+shapes.at(i).name+"\"";
                     if(parent) result+=", \"canvas\" : \""+parent+"\"";
@@ -49,6 +50,7 @@ define(["jquery", "underscore", "backbone", "ractive", "jstree", "text!templates
             if(this.treeContent) this.tree = $(this.el).jstree({ core : {data : $.parseJSON(this.treeContent)}});
             
             $(this.tree).on('select_node.jstree', function (e, data) {
+                                  console.log(e, data);
                                   if(data.node.original.canvas) Backbone.history.navigate("canvas/"+data.node.original.canvas, {trigger:true});
                               });
             $('#tree').perfectScrollbar('update');
